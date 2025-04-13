@@ -5,10 +5,10 @@ import CsvReader from '../shared/csv-reader';
 
 function AnswerCard({ inPopup, index }) {
     const title = inPopup? "Answer of Game #"+index : null;
-    const filePath = "/csv/answers/answer"+index+".csv";
+    const databaseDict = JSON.parse(localStorage.getItem("databaseDict"));
+    const filePath = "/csv/answers/"+databaseDict[index]?.AnswerFile;
     const [csvData, setCsvData] = useState([]);
     const handleCsvData = (data) => {
-        // console.log(data);
 		setCsvData(data);
 	};
     return (
