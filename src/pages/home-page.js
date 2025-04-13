@@ -24,7 +24,7 @@ function HomePage() {
 
     const navigate = useNavigate();
     const handleStartClick = () => {
-        navigate('/game/${selectedGameKey}');
+        navigate('/game/'+selectedGameKey);
     };
     return (
         <div>

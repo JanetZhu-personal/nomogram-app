@@ -1,10 +1,11 @@
 // src/game-page.js
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Navbar from '../components/navbar';
 import AnswerCard from '../components/answer-card';
 
 function GamePage() {
-	const index = "01";
+	const { gameKey } = useParams();
 
 	const [showPopup, setShowPopup] = useState(false);
 	const togglePopup = () => {
@@ -19,7 +20,7 @@ function GamePage() {
 			{showPopup && (
 				<div className="popup-overlay">
 					<div className="popup-box">
-						<AnswerCard inPopup index={index} />
+						<AnswerCard inPopup index={gameKey} />
 						<button className="answer-popup-btn" onClick={togglePopup}>Close</button>
 					</div>
 				</div>
