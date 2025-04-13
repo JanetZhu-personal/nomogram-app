@@ -80,47 +80,6 @@ body {
   cursor: not-allowed;
 }
 
-/* popups */
-.popup-overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background-color: rgba(0, 0, 0, 0.5);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index: 1000;
-}
-
-.popup-box {
-	background-color: #fff;
-	padding: 20px;
-	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-/* answer grid */
-.answer-grid {
-  border-collapse: collapse;
-}
-
-.answer-grid-cell {
-  width: 20px;
-  height: 20px;
-  border: 1px solid #ccc;
-}
-
-/* grid cells */
-.black-cell {
-  background-color: black;
-}
-
-.white-cell {
-  background-color: white;
-}
-
 /* game table */
 .table-container {
   display: flex;
@@ -167,4 +126,114 @@ body {
 
 .game-table td:first-child, .game-table th:first-child {
   text-align: center;
+}
+
+/* popups */
+.popup-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.popup-box {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* answer grid */
+.answer-grid {
+  border-collapse: collapse;
+}
+
+.answer-grid-cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+}
+
+/* grid cells */
+.black-cell {
+  background-color: black;
+}
+
+.white-cell {
+  background-color: white;
+}
+
+/* Ensures the grid container takes up the full page */
+.grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* Full viewport height */
+  width: 100%; /* Full width */
+}
+
+/* Grid wrapper */
+.grid {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  max-width: 600px; /* Adjust to your desired grid width */
+  max-height: 600px; /* Adjust to your desired grid height */
+}
+
+/* Column hints (above the grid) */
+.column-hints {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+/* Style for each column hint */
+.column-hints .hint {
+  margin-right: 10px;
+  text-align: center;
+  font-size: 16px; /* Larger font size */
+}
+
+/* Grid content */
+.grid-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for each row */
+.row {
+  display: flex;
+  align-items: center;
+}
+
+/* Row hint (on the left of each row) */
+.row-hint {
+  width: 40px; /* Adjust width for row hint */
+  padding: 10px;
+  text-align: center;
+  font-size: 16px; /* Larger font size */
+}
+
+/* Empty cells in the grid */
+.cell {
+  width: 60px; /* Adjust cell width for larger cells */
+  height: 60px; /* Adjust cell height for larger cells */
+  margin: 5px; /* Space between cells */
+  border: 2px solid #ccc; /* Thicker border for cells */
+  background-color: #fff; /* Empty cells with no fill */
+}
+
+/* Empty cell for top-left corner */
+.empty-cell {
+  width: 60px;
+  height: 60px;
+  margin: 5px;
 }

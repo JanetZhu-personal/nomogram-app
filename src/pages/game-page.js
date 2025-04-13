@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import Navbar from '../components/navbar';
 import AnswerCard from '../components/answer-card';
 import CsvReader from '../shared/csv-reader';
+import GameGrid from '../components/game-grid';
 
 function GamePage() {
 	const { gameKey } = useParams();
@@ -26,8 +27,10 @@ function GamePage() {
                 filePath={answerFilePath} 
                 onDataParsed={handleCsvData}
                 asDict={false} />
+
+			<GameGrid index={gameKey} csvData={csvData}/>
+
 			<button className="answer-popup-btn" onClick={togglePopup}>Answer</button>
-      	
 			{showPopup && (
 				<div className="popup-overlay">
 					<div className="popup-box">
