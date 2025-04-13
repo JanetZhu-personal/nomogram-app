@@ -12,9 +12,14 @@ function HomePage() {
         setDatabase(data);
     }, []);
 
+    const [selectedGameKey, setSelectedGameKey] = useState(null);
+    const handleRowClick = (key) => {
+        setSelectedGameKey(key);
+    };
+
     const navigate = useNavigate();
     const handleStartClick = () => {
-        navigate('/game');
+        navigate('/game/${selectedGameKey}');
     };
     return (
         <div>
@@ -36,18 +41,31 @@ function HomePage() {
                         <tbody>
                             {Object.keys(databaseDict).map((key) => {
                                 const item = databaseDict[key];
+                                const isSelected = selectedGameKey === key;
                                 return (
-                                <tr key={key}>
-                                    <td>{item.Key}</td>
-                                    <td>{item.Level}</td>
-                                    <td>{item.Status}</td>
-                                </tr>
+                                    <tr 
+                                        key={key} 
+                                        className={isSelected ? 'selected-row' : ''}
+                                        onClick={() => handleRowClick(key)}
+                                        style={{ cursor: 'pointer' }}
+                                    >
+                                        <td>{item.Key}</td>
+                                        <td>{item.Level}</td>
+                                        <td>{item.Status}</td>
+                                    </tr>
                                 );
                             })}
                         </tbody>
                     </table>
                 </div>
-                <button id="start-btn" onClick={handleStartClick}>Start</button>
+                <button
+                    id="start-btn"
+                    onClick={handleStartClick}
+                    disabled={!selectedGameKey}
+                    className={!selectedGameKey ? 'disabled-btn' : ''}
+                >
+                    Start
+                </button>
             </div>
         </div>
     );

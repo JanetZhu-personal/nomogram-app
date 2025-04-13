@@ -61,18 +61,23 @@ body {
 /* buttons */
 #start-btn, .answer-popup-btn {
   font-family: Cantarell;
-  background-color: #004d40; 
-  color: white;              
-  padding: 10px 20px;        
-  border: none;               
-  border-radius: 5px;         
-  font-size: 1rem;            
-  cursor: pointer;            
+  background-color: #004d40;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 #start-btn:hover, .answer-popup-btn:hover {
-  background-color: #0056b3;  /* Darker blue on hover */
+  background-color: #0056b3;
+}
+
+#start-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }
 
 /* popups */
@@ -123,6 +128,10 @@ body {
   margin-top: 40px;
 }
 
+.selected-row {
+  background-color: #e6f7ff;
+}
+
 .game-table {
   width: 80%;
   border-collapse: collapse;
@@ -142,7 +151,7 @@ body {
 }
 
 .game-table tr:hover {
-  background-color: #1b5e20;
+  background-color: #e6f7ff;
   cursor: pointer;
 }
 
