@@ -169,71 +169,41 @@ body {
   background-color: white;
 }
 
+/* game grid */
 /* Ensures the grid container takes up the full page */
 .grid-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh; /* Full viewport height */
+  height: 100vh; /* Full viewport height */
   width: 100%; /* Full width */
 }
 
-/* Grid wrapper */
+/* Grid wrapper (table) */
 .grid {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  max-width: 600px; /* Adjust to your desired grid width */
-  max-height: 600px; /* Adjust to your desired grid height */
+  border-collapse: collapse; /* To collapse borders between cells */
+  max-width: 800px; /* Adjust to your desired grid width */
+  max-height: 800px; /* Adjust to your desired grid height */
 }
 
-/* Column hints (above the grid) */
-.column-hints {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding-bottom: 10px;
+/* Empty cell at the top-left corner */
+.empty-cell {
+  width: 60px; /* Adjust width for the empty top-left cell */
+  height: 60px; /* Adjust height for the empty top-left cell */
 }
 
-/* Style for each column hint */
-.column-hints .hint {
-  margin-right: 10px;
-  text-align: center;
-  font-size: 16px; /* Larger font size */
-}
-
-/* Grid content */
-.grid-content {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Style for each row */
-.row {
-  display: flex;
-  align-items: center;
-}
-
-/* Row hint (on the left of each row) */
-.row-hint {
-  width: 40px; /* Adjust width for row hint */
-  padding: 10px;
-  text-align: center;
-  font-size: 16px; /* Larger font size */
-}
-
-/* Empty cells in the grid */
-.cell {
+/* Grid content (cells) */
+td.cell {
   width: 60px; /* Adjust cell width for larger cells */
   height: 60px; /* Adjust cell height for larger cells */
-  margin: 5px; /* Space between cells */
+  padding: 5px;
   border: 2px solid #ccc; /* Thicker border for cells */
   background-color: #fff; /* Empty cells with no fill */
 }
 
-/* Empty cell for top-left corner */
-.empty-cell {
-  width: 60px;
-  height: 60px;
-  margin: 5px;
+/* hints */
+th.hint, td.row-hint{
+  text-align: center;
+  font-size: 18px; /* Larger font size */
+  padding: 10px;
 }

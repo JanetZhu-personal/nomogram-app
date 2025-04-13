@@ -3,43 +3,47 @@ import React, { useState } from 'react';
 import CalculateHints from '../shared/calculate-hints'
 
 function GameGrid({ index, csvData }) {
-    const [hints, setHints] = useState(null);
+    const [hints, setHits] = useState(null);
 
     return (
         <div className="grid-container">
-            <CalculateHints csvData={csvData} onDataParsed={setHints} />
-
+            <CalculateHints csvData={csvData} onDataParsed={setHits} />
+            
             {hints && (
-                <div className="grid">
-                    {/* Column hints (above the grid) */}
-                    <div className="column-hints">
-                        <div className="empty-cell"></div> {/* Empty cell at the top-left corner */}
-                        {hints.ColumnHints.map((colHint, colIndex) => (
-                            <div key={colIndex} className="hint">
-                                {colHint.length === 1 ? colHint[0] : colHint.join(", ")}
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Grid content (with row hints on the left) */}
-                    <div className="grid-content">
+                <table className="grid">
+                    <thead>
+                        <tr>
+                            {/* Empty cell at the top-left corner */}
+                            <th className="empty-cell"></th>
+                            
+                            {/* Column hints */}
+                            {hints.ColumnHints.map((colHint, colIndex) => (
+                                <th key={colIndex} className="hint">
+                                    {colHint.length === 1 ? colHint[0] : colHint.join(", ")}
+                                </th>
+                            ))}
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        {/* Rows */}
                         {csvData.map((row, rowIndex) => (
-                            <div key={rowIndex} className="row">
-                                {/* Row hint (on the left of each row) */}
-                                <div className="row-hint">
-                                    {hints.RowHints[rowIndex].length === 1
+                            <tr key={rowIndex}>
+                                {/* Row hint - with a separate background color */}
+                                <td className="row-hint">
+                                    {hints.RowHints[rowIndex].length === 1 
                                         ? hints.RowHints[rowIndex][0]
                                         : hints.RowHints[rowIndex].join(", ")}
-                                </div>
-
-                                {/* Empty grid cells */}
+                                </td>
+                                
+                                {/* Cells */}
                                 {row.map((cell, cellIndex) => (
-                                    <div key={cellIndex} className="cell"></div>
+                                    <td key={cellIndex} className="cell"></td> // Empty cell for now
                                 ))}
-                            </div>
+                            </tr>
                         ))}
-                    </div>
-                </div>
+                    </tbody>
+                </table>
             )}
         </div>
     );
