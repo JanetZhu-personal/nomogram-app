@@ -1,5 +1,5 @@
 // src/home-page.js
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/navbar';
 import Sidebar from '../components/sidebar';
@@ -11,6 +11,11 @@ function HomePage() {
         // console.log(data);
         setDatabase(data);
     }, []);
+    useEffect(() => {
+        if (Object.keys(databaseDict).length > 0) {
+            localStorage.setItem('databaseDict', JSON.stringify(databaseDict));
+        }
+    }, [databaseDict]);
 
     const [selectedGameKey, setSelectedGameKey] = useState(null);
     const handleRowClick = (key) => {
