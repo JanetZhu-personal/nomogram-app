@@ -8,7 +8,7 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/game/" element={<GamePage />} />
+      <Route path="/game/:gameKey" element={<GamePage />} />
     </Routes>
   );
 };

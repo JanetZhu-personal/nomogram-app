@@ -54,7 +54,6 @@ body {
 /* content in pages */
 .content {
   text-align: center;
-  position: center;
   margin-left: 220px;
   padding: 20px;
 }
@@ -62,18 +61,71 @@ body {
 /* buttons */
 #start-btn, .answer-popup-btn {
   font-family: Cantarell;
-  background-color: #004d40; 
-  color: white;              
-  padding: 10px 20px;        
-  border: none;               
-  border-radius: 5px;         
-  font-size: 1rem;            
-  cursor: pointer;            
+  background-color: #004d40;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 #start-btn:hover, .answer-popup-btn:hover {
-  background-color: #0056b3;  /* Darker blue on hover */
+  background-color: #0056b3;
+}
+
+#start-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* game table */
+.table-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.selected-row {
+  background-color: #e6f7ff;
+}
+
+.game-table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 18px;
+  text-align: center;
+  position: center;
+}
+
+.game-table th, .game-table td {
+  padding: 12px 15px;
+}
+
+.game-table thead {
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.game-table tr:hover {
+  background-color: #e6f7ff;
+  cursor: pointer;
+}
+
+.game-table th {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+}
+
+.game-table td {
+  border-bottom: 1px solid #ddd;
+}
+
+.game-table td:first-child, .game-table th:first-child {
+  text-align: center;
 }
 
 /* popups */
@@ -115,4 +167,43 @@ body {
 
 .white-cell {
   background-color: white;
+}
+
+/* game grid */
+/* Ensures the grid container takes up the full page */
+.grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* Full viewport height */
+  width: 100%; /* Full width */
+}
+
+/* Grid wrapper (table) */
+.grid {
+  border-collapse: collapse; /* To collapse borders between cells */
+  max-width: 800px; /* Adjust to your desired grid width */
+  max-height: 800px; /* Adjust to your desired grid height */
+}
+
+/* Empty cell at the top-left corner */
+.empty-cell {
+  width: 60px; /* Adjust width for the empty top-left cell */
+  height: 60px; /* Adjust height for the empty top-left cell */
+}
+
+/* Grid content (cells) */
+td.cell {
+  width: 60px; /* Adjust cell width for larger cells */
+  height: 60px; /* Adjust cell height for larger cells */
+  padding: 5px;
+  border: 2px solid #ccc; /* Thicker border for cells */
+  background-color: #fff; /* Empty cells with no fill */
+}
+
+/* hints */
+th.hint, td.row-hint{
+  text-align: center;
+  font-size: 18px; /* Larger font size */
+  padding: 10px;
 }
