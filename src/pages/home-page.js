@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/navbar';
 import Sidebar from '../components/sidebar';
-import CsvReader from '../shared/csv-reader';
+import DatabaseReader from '../shared/database-reader';
 
 function HomePage() {
     const [databaseDict, setDatabase] = useState([]);
     const handleDatabase = (data) => {
+        console.log(data)
 		setDatabase(data);
 	};
 
@@ -19,10 +20,8 @@ function HomePage() {
         <div>
             <Navbar title="Game Center" />
             <Sidebar />
-            <CsvReader 
-                filePath="/csv/puzzles.csv"
-                onDataParsed={handleDatabase}
-                asDict={true} />
+            <DatabaseReader 
+                onDataParsed={handleDatabase}/>
             <div className="content">
                 <h2>Welcome to the Nomogram!</h2>
                 <table>
@@ -30,6 +29,7 @@ function HomePage() {
                     <tr>
                         <th>Game</th>
                         <th>Level</th>
+                        <th>Status</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -39,6 +39,7 @@ function HomePage() {
                             <tr key={key}>
                                 <td>{item.Key}</td>
                                 <td>{item.Level}</td>
+                                <td>{item.Status}</td>
                             </tr>
                             );
                         })}

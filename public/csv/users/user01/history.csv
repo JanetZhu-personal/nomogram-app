@@ -1,0 +1,4 @@
+ActivityKey,GameKey,OpenedTime,IsCompleted,CompletionDurationInSeconds
+000-000-001,01,2025/4/13 0:00,1,18
+000-000-002,01,2025/4/13 2:40,0,null
+000-000-003,02,2025/4/13 7:21,0,null
