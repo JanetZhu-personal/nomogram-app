@@ -7,23 +7,14 @@ function DatabaseReader({ onDataParsed }) {
     const puzzleFile = '/csv/puzzles.csv';
     const userHistoryFile = 'csv/users/user01/history.csv';
     // get data
-    const [puzzleData, setPuzzleData] = useState([]);
-    const handlePuzzleData = (data) => {
-        setPuzzleData(data);
-    };
-    const [userHistoryData, setUserHistoryData] = useState([]);
-    const handleUserHistoryData = (data) => {
-        setUserHistoryData(data);
-    };
+    const [puzzleData, setPuzzleData] = useState(null);
+    const [userHistoryData, setUserHistoryData] = useState(null);
 
     // Calculation
     useEffect(() => {
         if (puzzleData && userHistoryData) {
             const result = calculateHistory(puzzleData, userHistoryData);
-
-            if (onDataParsed) {
-                onDataParsed(result);
-            }
+            onDataParsed(result);
         }
     }, [puzzleData, userHistoryData, onDataParsed]);
 
@@ -31,11 +22,11 @@ function DatabaseReader({ onDataParsed }) {
         <div>
             <CsvReader 
                 filePath={puzzleFile}
-                onDataParsed={handlePuzzleData}
+                onDataParsed={setPuzzleData}
                 asDict={true} />
             <CsvReader 
                 filePath={userHistoryFile}
-                onDataParsed={handleUserHistoryData}
+                onDataParsed={setUserHistoryData}
                 asDict={true} />
         </div>
     );

@@ -8,7 +8,7 @@ function AnswerCard({ inPopup, index }) {
     const filePath = "/csv/answers/answer"+index+".csv";
     const [csvData, setCsvData] = useState([]);
     const handleCsvData = (data) => {
-        console.log(data);
+        // console.log(data);
 		setCsvData(data);
 	};
     return (

@@ -54,7 +54,6 @@ body {
 /* content in pages */
 .content {
   text-align: center;
-  position: center;
   margin-left: 220px;
   padding: 20px;
 }
@@ -115,4 +114,48 @@ body {
 
 .white-cell {
   background-color: white;
+}
+
+/* game table */
+.table-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.game-table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 18px;
+  text-align: center;
+  position: center;
+}
+
+.game-table th, .game-table td {
+  padding: 12px 15px;
+}
+
+.game-table thead {
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.game-table tr:hover {
+  background-color: #1b5e20;
+  cursor: pointer;
+}
+
+.game-table th {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+}
+
+.game-table td {
+  border-bottom: 1px solid #ddd;
+}
+
+.game-table td:first-child, .game-table th:first-child {
+  text-align: center;
 }
