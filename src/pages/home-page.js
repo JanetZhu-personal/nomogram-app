@@ -8,15 +8,7 @@ import CsvReader from '../shared/csv-reader';
 function HomePage() {
     const [databaseDict, setDatabase] = useState([]);
     const handleDatabase = (data) => {
-        console.log(data);
-        const [headers, ...rows] = data;
-        const keyIndex = headers.indexOf("Key");
-
-        const dict = Object.fromEntries(
-            rows.map(row => [row[keyIndex], Object.fromEntries(headers.map((h, i) => [h, row[i]]))])
-        );
-        console.log(databaseDict);
-		setDatabase(dict);
+		setDatabase(data);
 	};
 
     const navigate = useNavigate();
@@ -29,7 +21,8 @@ function HomePage() {
             <Sidebar />
             <CsvReader 
                 filePath="/csv/puzzles.csv"
-                onDataParsed={handleDatabase} />
+                onDataParsed={handleDatabase}
+                asDict={true} />
             <div className="content">
                 <h2>Welcome to the Nomogram!</h2>
                 <table>

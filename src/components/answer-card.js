@@ -16,7 +16,8 @@ function AnswerCard({ inPopup, index }) {
             {title && <h3>{title}</h3>}
             <CsvReader 
                 filePath={filePath} 
-                onDataParsed={handleCsvData} />
+                onDataParsed={handleCsvData}
+                asDict={false} />
             <div>
 				<table className="answer-grid">
                     <tbody>
