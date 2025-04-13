@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+body {
+  margin: 0;
+  font-family: Oxygen;
+  background-color: #b2dfdb;
+}
+
+/* navbar */
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+/* sidebar */
+.sidebar {
+  width: 200px;
+  background-color: #26a69a;
+  padding: 20px;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* content in pages */
+.content {
+  text-align: center;
+  position: center;
+  margin-left: 220px;
+  padding: 20px;
+}
+
+/* buttons */
+#start-btn, .answer-popup-btn {
+  font-family: Cantarell;
+  background-color: #004d40; 
+  color: white;              
+  padding: 10px 20px;        
+  border: none;               
+  border-radius: 5px;         
+  font-size: 1rem;            
+  cursor: pointer;            
+  transition: background-color 0.3s ease;
+}
+
+#start-btn:hover, .answer-popup-btn:hover {
+  background-color: #0056b3;  /* Darker blue on hover */
+}
+
+/* popups */
+.popup-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.popup-box {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* answer grid */
+.answer-grid {
+  border-collapse: collapse;
+}
+
+.answer-grid-cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+}
+
+/* grid cells */
+.black-cell {
+  background-color: black;
+}
+
+.white-cell {
+  background-color: white;
+}
